@@ -3,7 +3,7 @@
   "checksumAlgorithm": "SHA-256",
   "files": {
     ".github/workflows/ci.yml": "eb047488cb123ff6c2c97a91d1ee1f599ecca0b88c1c46cad21482a5bd933163",
-    ".github/workflows/release.yml": "e83b2f2dbed07d971d21c4e623e93a3ce429b175993d1a767b94a86ecdf871a2",
+    ".github/workflows/release.yml": "f09b502a044d134a7259c8a7391d2df03225ce19b6596b534d053f03229df97a",
     ".gitignore": "a02017d93b6e8d14b0628d6cb0fae52c9032c61251cc60567cd1c406d0faa4c4",
     "LICENSE": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
     "NOTICE.md": "834c6f64820f942163d246d10d2f179043f8a7a0aba27aac8aa6ce36b4f7fa1e",
