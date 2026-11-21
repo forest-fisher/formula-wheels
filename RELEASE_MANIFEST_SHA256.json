@@ -2,7 +2,7 @@
   "release": "22.0",
   "checksumAlgorithm": "SHA-256",
   "files": {
-    ".github/workflows/ci.yml": "5f01f708d3c5ce6d5406c97b344249724ca6154b648638928e818ac60f0c38c4",
+    ".github/workflows/ci.yml": "eb047488cb123ff6c2c97a91d1ee1f599ecca0b88c1c46cad21482a5bd933163",
     ".github/workflows/release.yml": "e83b2f2dbed07d971d21c4e623e93a3ce429b175993d1a767b94a86ecdf871a2",
     ".gitignore": "a02017d93b6e8d14b0628d6cb0fae52c9032c61251cc60567cd1c406d0faa4c4",
     "LICENSE": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
