@@ -1,0 +1,46 @@
+name: Verify Formula Wheels source and gallery
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install project PreTeXt version
+        run: python -m pip install -r requirements.txt
+      - name: Verify approved historic ZIP and repository manifest
+        run: |
+          python tools/verify_public_release.py
+          python tests/test_release.py
+      - name: Run Python regression checks
+        run: |
+          python tests/test_extended_gallery.py
+          python tests/test_postbuild.py
+          python tests/test_api_reference.py
+          python tests/test_licensing.py
+          python tests/test_gallery_status_layout.py
+      - name: Run JavaScript regression checks
+        run: |
+          node tests/test_fixture_semantics.js
+          node tests/test_css_refresh.js
+          node tests/test_mobile_layout.js
+          node tests/test_schedule.js
+          node tests/test_child_boot.js
+      - name: Build and patch gallery (including iframe scheduler/accessibility)
+        run: python tools/build_and_patch.py
+      - name: Package the verified public release asset
+        run: python tools/package_public_release.py
+      - name: Confirm staged ZIP hash
+        run: sha256sum --check dist/SHA256SUMS.txt
