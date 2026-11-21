@@ -1,0 +1,44 @@
+name: Publish approved GitHub release
+on:
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: read
+jobs:
+  validate:
+    uses: ./.github/workflows/ci.yml
+  publish:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require the declared approved release tag
+        run: |
+          python - <<'PY_RELEASE'
+          import json,os
+          meta=json.load(open('PUBLIC_VERSION.json'))
+          if os.environ['GITHUB_REF_NAME'] != meta['tag']:
+              raise SystemExit('Release tag must match explicitly verified public metadata')
+          PY_RELEASE
+      - name: Verify and stage the approved artifact
+        run: |
+          python tools/package_public_release.py
+          cd dist && sha256sum --check SHA256SUMS.txt
+      - name: Create the GitHub Release from the verified tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            dist/formula-wheels-v1.0.0.zip \
+            dist/SHA256SUMS.txt \
+            dist/PUBLIC_VERSION.json \
+            --verify-tag \
+            --title "Formula Wheels 1.0.0" \
+            --notes-file docs/PUBLIC_RELEASE_NOTES_v1_0_0.md \
+            --latest
