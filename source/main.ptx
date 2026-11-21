@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pretext xml:lang="en-US">
+  <docinfo><directories external="../assets"/></docinfo>
+  <article xml:id="fw-beta1">
+    <title>Formula Wheels 22.0-rc.4: PreTeXt integration examples</title>
+    <section xml:id="baseline-exercises">
+      <title>Original compatibility examples</title>
+      <p>These four exercises are the visual and functional reference cases. They provide JSXGraph, numerator and denominator fractions, and square-root choices.</p>
+      <figure xml:id="fig-linear">
+        <caption>Constant-rate relationship: <m>y=2x+1</m>, linked to JSXGraph</caption>
+        <interactive xml:id="fw-linear-graph" platform="jsxgraph" width="95%" aspect="1:1"
+          source="code/formula-wheels.js code/linear-graph.js"
+          css="css/formula-wheels.css css/linear-graph.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+          <slate xml:id="example-board" surface="jsxboard" aspect="5:2"/>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-numerator">
+        <caption>Numerator wheel: <m>y=\frac{x+2}{5}</m></caption>
+        <interactive xml:id="fw-fraction-numerator" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/fraction-numerator.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-denominator">
+        <caption>Denominator wheel: <m>y=\frac{5}{x+2}</m>, with <m>x\ne -2</m></caption>
+        <interactive xml:id="fw-fraction-denominator" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/fraction-denominator.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-circle">
+        <caption>Multiple possible outputs: <m>x^2+y^2=9</m></caption>
+        <interactive xml:id="fw-circle-branches" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/circle-branches.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <p>The numerator fraction retains the tested 9px denominator padding.</p>
+    </section>
+    <section xml:id="choice-exercises">
+      <title>Preferred options and anonymous labels</title>
+      <p>Test preferred values in both required and automatic selection modes, three alternatives, and visually hidden variable names.</p>
+      <figure xml:id="fig-preferred-required">
+        <caption>Preferred, manual: <m>x^2+y^2=9</m>; positive branch highlighted</caption>
+        <interactive xml:id="fw-preferred-required" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/preferred-required.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-preferred-automatic">
+        <caption>Preferred, automatic: <m>x^2+y^2=9</m>; negative branch highlighted with faded alternative</caption>
+        <interactive xml:id="fw-preferred-automatic" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/preferred-automatic.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-three-options">
+        <caption>Three permissible values and a highlighted zero: <m>xy=0</m></caption>
+        <interactive xml:id="fw-preferred-three-options" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/preferred-three-options.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-hidden-labels">
+        <caption>Hidden variable tabs and prompt names: <m>x^2+1=y</m></caption>
+        <interactive xml:id="fw-hidden-variable-labels" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/hidden-variable-labels.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <p>For preferred manual: select <m>x=1</m> and inspect the bold positive option in the popup. For automatic: move <m>x</m> and inspect highlighted and shadowed results during the movement. For the three-options figure: select <m>x=0</m>. For anonymous labels: the formula keeps its semantic mathematical accessibility even though tabs and prompt names are hidden.</p>
+    </section>
+    <section xml:id="display-exercises">
+      <title>Display-only formulas</title>
+      <p>These three figures should contain no interactive spinbuttons, choice popups, or keyboard-edit behavior. Their mathematical values are intentionally fixed for illustration.</p>
+      <figure xml:id="fig-display-linear">
+        <caption>Display-only linear equation: <m>y=2x+1</m></caption>
+        <interactive xml:id="fw-display-only-linear" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/display-only-linear.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-display-fraction">
+        <caption>Display-only fraction with numerator fraction: <m>y=\frac{x+2}{5}</m></caption>
+        <interactive xml:id="fw-display-only-fraction" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/display-only-fraction.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-display-radical">
+        <caption>Display-only quadratic equation with a square root</caption>
+        <interactive xml:id="fw-display-only-radical" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/display-only-radical.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+    </section>
+    <section xml:id="notation-exercises">
+      <title>Richer mathematical notation</title>
+      <p>These exercises test MathJax CommonHTML layout for expressions inside green or blue boxes and static fragments. The cube-root notation is authored in valid LaTeX using an optional root index.</p>
+      <figure xml:id="fig-fractional-power">
+        <caption>Fractional exponent: <m>x^{3/5}=y</m>; initial <m>x=2</m></caption>
+        <interactive xml:id="fw-fractional-exponent" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/fractional-exponent.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-logarithm">
+        <caption>Logarithm: <m>\log_2(x)=y</m>; initial <m>x=8</m></caption>
+        <interactive xml:id="fw-logarithm" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/logarithm.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <figure xml:id="fig-cube-root">
+        <caption>Cube root: <m>y^3=x</m>; initial output <m>\sqrt[3]{8}</m></caption>
+        <interactive xml:id="fw-cube-root" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/cube-root.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+    </section>
+    <section xml:id="temporary-exercises">
+      <title>Temporary permissible outputs and provenance</title>
+      <p>Here <m>\sqrt{4.59}</m> and <m>-\sqrt{4.59}</m> are valid author callback outputs but neither appears in the permanent selectable <m>y</m> array. The permanent <m>x</m> array includes both <m>2.1</m> and <m>-2.1</m>, so the return-to-temporary-value behavior is testable.</p>
+      <figure xml:id="fig-transient-circle">
+        <caption>Temporary roots and original pairings: <m>x^2+y^2=9</m></caption>
+        <interactive xml:id="fw-transient-circle" platform="javascript" width="95%" aspect="2:1"
+          source="code/formula-wheels.js code/gallery-fixture.js code/transient-circle.js"
+          css="css/formula-wheels.css css/beta1-wheel.css">
+          <slate surface="html" aspect="2:1"><div xmlns="http://www.w3.org/1999/xhtml" id="formula-wheels" class="formula-wheels"></div></slate>
+        </interactive>
+      </figure>
+      <p>Start at <m>x=3</m>, <m>y=0</m>. Change <m>x</m> to <m>2.1</m> and explicitly choose the positive root. The resulting <m>y=\sqrt{4.59}</m> must be temporarily scrollable although it is not in the canonical <m>y</m> array. When returning to that temporary root, the engine should retain its original pairing with <m>x=2.1</m>, not introduce <m>-2.1</m> as a new choice. After ending a gesture on another <m>y</m> value, the temporary entry should be discarded.</p>
+    </section>
+  </article>
+</pretext>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formula Wheels 22.0-rc.4 — Standalone CHTML example</title>
+  <link rel="stylesheet" href="../src/formula-wheels.css">
+  <link rel="stylesheet" href="../assets/css/beta1-wheel.css">
+  <style>body{font-family:system-ui,sans-serif;margin:2rem auto;max-width:720px;padding:0 1rem} .formula-wheels{max-width:650px}</style>
+  <script>
+    // The PreTeXt child uses the separately installed early-head shim instead.
+    window.MathJax = {options:{menuOptions:{settings:{enrich:true,speech:false,braille:false}}}};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js"></script>
+  <script defer src="../src/formula-wheels.js"></script>
+  <script defer src="../assets/code/fraction-numerator.js"></script>
+</head>
+<body>
+  <h1>Formula Wheels — standalone authoring example</h1>
+  <p>The equation below uses a reusable library and a separate exercise-specific JavaScript file. Use arrow keys and Enter, or drag the numbers.</p>
+  <div id="formula-wheels" class="formula-wheels"></div>
+</body>
+</html>

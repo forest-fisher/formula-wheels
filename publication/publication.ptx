@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<publication>
+  <source>
+    <directories generated="../generated-assets"/>
+  </source>
+  <html>
+    <css theme="denver"/>
+  </html>
+</publication>

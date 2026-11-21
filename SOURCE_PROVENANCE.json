@@ -1,0 +1,42 @@
+{
+  "release": "22.0",
+  "commonhtmlBaseline": "formula_wheels_v22_0_chtml_rc5_extended_compatibility_gallery(1).zip",
+  "measurementBaseline": "formula_wheels_fixed_headstart_diagnostic_v1_0_9.zip",
+  "coreSHA256": "491fa7193a042cdf0a98f34ce89fab5e57209eead6cab9866eba879c1b2b96fe",
+  "cssSHA256": "ffbe0ab2b8b60b95715c8508f9e9800dcaacb929436767a22245c6169764842b",
+  "coreAndCssByteUnchanged": false,
+  "parentSchedule": {
+    "first": "immediate",
+    "secondAfterFirstMs": 3000,
+    "subsequentGapMs": 250
+  },
+  "mathJax": {
+    "version": "4.1.3 tested",
+    "renderer": "CHTML",
+    "parent": {
+      "enrich": true,
+      "speech": true,
+      "braille": true
+    },
+    "child": {
+      "enrich": true,
+      "speech": false,
+      "braille": false
+    }
+  },
+  "qualifications": [
+    "RC4 approved by Forest Fisher on physical mobile browser over local Wi-Fi: fit, 55% portrait baseline, usability and portrait/landscape rotation.",
+    "Desktop Firefox/Chrome behaviors accepted based on RC2 checks; RC4 changes were mobile layout corrections; no new runtime modifications in final promotion.",
+    "Four Firefox child accessibility configuration results reported PASS; Chrome child diagnostic not repeated; expert screen-reader usability not certified.",
+    "The historical 389-check legacy 21.x suite has not been rerun wholesale on 22.0; included local regression tests passed.",
+    "Version 22.1 GitHub distribution/update PRs and Version 22.2 build-time ClearSpeak speech authoring are future milestones."
+  ],
+  "previousRelease": "22.0-rc.4",
+  "layoutCorrection": "RC3 symmetric transform footprint compensation retained; RC4 adds visible parent viewport width and iframe cap before load; uniform 55% baseline for parent phone widths 351–420px.",
+  "rc2CoreSHA256": "4feec1853e7d91b45a8d32d77c43dfe2f3577d78c961fe04907db64437e3cb6b",
+  "rc2CssSHA256": "bf738eeb8d3750c369498ed286cd5f92fa13935c8de8ce20cba92e887ad2c842",
+  "parentSchedulerSHA256": "9e8da8dd62398d36916ddb30b59955069c246dfc2d9d89b63a7c725dea0a25df",
+  "rc3CoreSHA256": "623a12e3d75396828f8fbb2ca8793b7a9340951e2b1f1ed0258b78dffc0c3ddf",
+  "rc3CssSHA256": "190722466e851eb4d90da8dfe063db49f143b32c55fc67db6abb4ac98d556e65",
+  "promotion": "Documentation/manifest/CLI-label-only promotion of author-approved RC4. Runtime engine, CSS, parent scheduler, child configuration, examples and PreTeXt gallery remain byte-identical to RC4."
+}

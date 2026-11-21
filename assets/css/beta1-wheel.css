@@ -1,0 +1,20 @@
+/* Exercise-local sizing; this file is not part of the shared Formula Wheels library. */
+#formula-wheels[data-slate="equation"] {
+  box-sizing:border-box;
+  height:258px;
+  min-height:258px;
+  padding:76px 8px 78px;
+}
+/* The testing status is a fixed overlay INSIDE its iframe. PreTeXt sizes
+   the HTML slate independently; a normal-flow sibling appended after the
+   slate can extend the iframe document and create vertical scrollbars.
+   Do not let diagnostic text change the exercise's intrinsic height. */
+.fw-beta1-status {
+  position:fixed; left:12px; right:12px; bottom:9px; z-index:20;
+  box-sizing:border-box; max-width:calc(100% - 24px); margin:0;
+  font:11px/1.4 ui-monospace, Consolas, monospace; color:#355367;
+  white-space:pre-wrap; pointer-events:none;
+}
+@media (max-width:480px){
+ #formula-wheels[data-slate="equation"] {height:238px;min-height:238px;padding:64px 3px 68px;}
+}
