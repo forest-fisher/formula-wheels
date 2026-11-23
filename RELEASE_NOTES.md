@@ -1,6 +1,12 @@
-# Formula Wheels 22.0 release notes
+# Formula Wheels — Release notes
 
 **Author:** Forest Fisher · **Copyright:** © 2026 Forest Fisher · **License:** MPL-2.0 (see `LICENSE`). **Development disclosure:** This tool was vibe coded with extensive assistance from ChatGPT (OpenAI). See `NOTICE.md`.
+
+## Public v1.0.1 candidate (November 23, 2026): authoring toolkit only
+
+Adds three optional Node.js command-line authoring tools: `generate-values.cjs`, `add-speech.cjs`, and `add-output-speech.cjs`. The third tool evaluates a trusted authored callback over canonical choices and writes a separate copy containing a generated SRE speech lookup and a wrapping callback. See `docs/formula_wheels_authoring_tools.md` for inputs, flags, limitations, and examples. There are **no changes** to any approved student-facing JavaScript, CSS, scheduler, or child MathJax configuration, and no SRE dependency in students' browsers. The original v1.0.0 release asset remains retained and byte-identical.
+
+Full authoring-tool tests and the PreTeXt gallery/packaging CI must pass before publication; this locally assembled archive is a release candidate, not a published GitHub release.
 
 ## 22.0 final promotion (November 21, 2026)
 

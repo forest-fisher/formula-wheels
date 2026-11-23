@@ -1,6 +1,6 @@
 # Formula Wheels — public distribution
 
-**Public release:** `v1.0.0` · **Approved internal baseline:** `22.0` (November 21, 2026)  
+**First public release:** `v1.0.0` · **Approved internal baseline:** `22.0` (November 21, 2026)  
 **Author:** Forest Fisher · **Copyright:** © 2026 Forest Fisher · **License:** MPL 2.0.  
 **Development disclosure:** Vibe coded with extensive ChatGPT (OpenAI) assistance; see [NOTICE.md](../NOTICE.md).
 
@@ -36,3 +36,9 @@ The current test suite is not an expert screen-reader usability certification, a
 ## Future releases
 
 The initial GitHub workflow intentionally recognizes `v1.0.0` and its preserved approved artifact. Future versioned bundles should be explicitly added to the public metadata and release packaging logic, with their own verified source manifests and compatibility tests. Do not update this public version field or release by merely renaming a Git tag.
+
+## v1.0.1 authoring-only update (candidate)
+
+Public `v1.0.1` adds the optional Node.js authoring tools and their documented tests, including `add-output-speech.cjs`. The four canonical runtime/integration files have exactly the same hashes as in v1.0.0. The v1.0.0 ZIP is retained unchanged as historical verification evidence, and the new ZIP contains its own full checksum manifest.
+
+The textbook's existing 22.1-C updater originally vendors an **explicit file allowlist**, so merely publishing v1.0.1 will not send these authoring tools into the textbook. Update the textbook's updater/verifier inventory first and validate it against a simulated v1.0.1 archive. A subsequent reviewed update PR can then include the new files. No automatic merge or deploy.

@@ -37,6 +37,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="$(python -c 'import json; print(json.load(open("PUBLIC_VERSION.json"))["tag"])')"
+          version="$(python -c 'import json; print(json.load(open("PUBLIC_VERSION.json"))["publicVersion"])')"
           if [ "$GITHUB_REF" = "refs/heads/main" ]; then
             if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1; then
               echo "Release tag already exists; refusing to overwrite it"
@@ -44,14 +45,14 @@ jobs:
             fi
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git tag -a "$tag" -m "First public release: approved internal Formula Wheels 22.0"
+            git tag -a "$tag" -m "Release Formula Wheels $tag"
             git push origin "$tag"
           fi
           gh release create "$tag" \
-            dist/formula-wheels-v1.0.0.zip \
+            "dist/formula-wheels-v${version}.zip" \
             dist/SHA256SUMS.txt \
             dist/PUBLIC_VERSION.json \
             --verify-tag \
-            --title "Formula Wheels 1.0.0" \
-            --notes-file docs/PUBLIC_RELEASE_NOTES_v1_0_0.md \
+            --title "Formula Wheels ${version}" \
+            --notes-file "docs/PUBLIC_RELEASE_NOTES_v${version//./_}.md" \
             --latest

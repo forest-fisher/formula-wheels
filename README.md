@@ -5,6 +5,25 @@
 
 **Version 22.0 is the accepted release, promoted from 22.0-rc.4 without changing the approved JavaScript, CSS, exercise examples, or scheduling/accessibility behavior.** The author accepted the final mobile layout on November 21, 2026, after testing on a physical phone over a local Wi-Fi network: horizontal overflow and wasted space were resolved; 55% portrait sizing remained usable; landscape showed appropriately larger, fitting equations; and rotation between orientations worked. Earlier Firefox and Chrome desktop acceptance confirmed all Formula Wheels loaded, the reported scrollbars were resolved, and the post-build integration completed. See [RELEASE_ACCEPTANCE.md](RELEASE_ACCEPTANCE.md) for evidence and limits. The public release tag **`v1.0.0`** maps to this approved internal **22.0** baseline. The original accepted ZIP is preserved byte-for-byte as the downloadable release asset. Repository additions provide GitHub distribution and validation; the independently installed PreTeXt integration and automatic textbook-update pull requests are still future work. See [GitHub distribution](docs/GITHUB_DISTRIBUTION.md).
 
+
+## Optional authoring tools (added in v1.0.1)
+
+Three Node.js command-line helpers in [`tools/authoring/`](tools/authoring/) generate numeric value arrays, propose spoken descriptions for static entries, and propose spoken descriptions for outputs of **author-authored** `permissibleOutputs()` callbacks. The callback tool creates a separate JavaScript file with an editable speech lookup and wrapper; it does **not** alter the mathematical callback or the approved Formula Wheels runtime.
+
+From the repository root:
+
+```bash
+cd tools/authoring
+npm install
+npm test
+cd ../..
+node tools/authoring/generate-values.cjs --start -3 --end 3 --anchors 1 --output values.js
+node tools/authoring/add-speech.cjs values.js
+node tools/authoring/add-output-speech.cjs tools/authoring/examples/circle-logic.js
+```
+
+The tools run **only for authors**. They do not ship SRE into the students' browser, and ordinary PreTeXt builds do not invoke them. Review all speech suggestions before adopting the generated code. See the complete [authoring-tool command reference](docs/formula_wheels_authoring_tools.md).
+
 ## What Formula Wheels does
 
 Formula Wheels is a reusable JavaScript/CSS component for building interactive mathematical equations in [PreTeXt](https://pretextbook.org/) and in standalone HTML. Authors provide their own mathematical relationships, values, visual formula builders and accessible descriptions. The component supplies scroll/drag/keyboard wheels, selectable and strictly dependent results, branching choices, hidden values/boxes, display-only formulas, and optional coordination with a separate JSXGraph slate.
